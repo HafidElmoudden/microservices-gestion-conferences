@@ -1,5 +1,6 @@
 package com.hafidelmoudden.microservices.conferenceservice.entities;
 
+import com.hafidelmoudden.microservices.conferenceservice.models.Keynote;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,4 +24,7 @@ public class Conference {
 
     @OneToMany(mappedBy = "conference", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Review> reviews;
+
+    @Transient
+    private Keynote keynote;
 }

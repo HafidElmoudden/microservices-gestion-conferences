@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: r1
+          uri: lb://CONFERENCE-SERVICE
+          predicates:
+            Path=/conferences/**
+        - id: r2
+          uri: lb://KEYNOTE-SERVICE
+          predicates:
+            Path=/keynotes/**
